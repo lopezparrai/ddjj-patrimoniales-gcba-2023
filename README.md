@@ -92,6 +92,29 @@ El dashboard permite filtrar todas las visualizaciones por **Cargo** y **Jurisdi
 
 ---
 
+## ⚙️ Arquitectura de Datos y Lógica DAX
+
+Para garantizar la integridad y el rendimiento del análisis, el desarrollo se centró en tres pilares de **Data Engineering**:
+
+### 1. Modelado de Datos (Star Schema)
+Se transformó un dataset plano (formato ancho) en un modelo de **Esquema en Estrella**, normalizando la información en tablas de dimensiones y una tabla de hechos. Esto optimizó el filtrado cruzado y la escalabilidad del reporte:
+* **Dimensiones:** `Dim_Declarantes`, `Dim_Laboral`, `Dim_TipoDeclaracion` y `Dim_Calendario`.
+* **Hechos:** `Fact_ActasNotariales`.
+
+### 2. Medidas DAX Avanzadas
+Se desarrollaron métricas personalizadas para cálculos dinámicos y agregaciones precisas:
+* **Patrimonio Dinámico:** Uso de `SWITCH` y `SELECTEDVALUE` para permitir el intercambio de categorías de activos (Inmuebles, Efectivo, Acciones) en un único objeto visual (**Treemap**).
+* **Promedios Iterados:** Implementación de `AVERAGEX` sobre la tabla de declarantes para obtener el patrimonio promedio real por persona, evitando sesgos por multiplicidad de actas.
+* **Tooltips de Página:** Configuración de información sobre herramientas personalizada que muestra el **Top 3 de funcionarios con mayor patrimonio** de forma contextual al interactuar con las jurisdicciones.
+
+### 3. ETL y Calidad de Datos (Power Query)
+Proceso de limpieza y transformación mediante **Lenguaje M**:
+* **Desduplicación:** Limpieza de registros duplicados basados en claves de CUIL.
+* **Estandarización:** Normalización de nombres de cargos y jurisdicciones para eliminar inconsistencias de carga manual.
+* **Tratamiento de Nulos:** Gestión de valores faltantes en campos monetarios para asegurar la precisión de los totales de la tabla *Fact*.
+
+---
+
 ## 🚀 Cómo usar este proyecto
 
 1. Clonar o descargar el repositorio.
