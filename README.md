@@ -21,7 +21,7 @@ El patrimonio total declarado asciende a **$678 mil millones**, con un promedio 
 │
 ├── Analisis_DDJJ_Patrimoniales_GCBA_2023.pbix   # Archivo Power BI
 ├── data/
-│   └── ddjj_2023.csv                             # Dataset original (fuente: BA Data)
+│   └── declaraciones-juradas-2023.csv                             # Dataset original (fuente: BA Data)
 ├── screenshots/
 │   └── dashboard.png                             # Captura del dashboard
 └── README.md
