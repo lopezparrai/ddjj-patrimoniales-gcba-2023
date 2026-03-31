@@ -105,6 +105,7 @@ El dashboard permite filtrar todas las visualizaciones por **Cargo** y **Jurisdi
 ## 👤 Autor
 
 **Ignacio Lopez Parra** — Analista de Datos
+
 Proyecto personal de análisis de datos abiertos del sector público.
 
 ---
